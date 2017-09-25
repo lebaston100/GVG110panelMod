@@ -25,7 +25,7 @@ The simple answer: A few weeks of reverse engineering and studying datasheets
 - Hide the Mega and the ethernet shield in the case(Todo)
 - Some deeper modifications including cutting traces on the pcb(Todo)
 
-##Address Mapping Table
+## Address Mapping Table
 
 Todo
 
@@ -40,7 +40,7 @@ Todo
 
 ## Protocol
 
-###### Events (Panel -> WS Server)
+## Events (Panel -> WS Server)
 
 The general layout of a event is: `<id letter>:<value1>:<value2>....`
 
@@ -78,7 +78,7 @@ Example: Button 12 and 20 depressed:
 
 ***
 
-###### Requests (WS Server -> Panel)
+## Requests (WS Server -> Panel)
 
 The general layout of a request is: `<id letter>:<value1>:<value2>:....:`
 
