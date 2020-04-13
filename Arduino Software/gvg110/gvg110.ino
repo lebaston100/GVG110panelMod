@@ -120,7 +120,7 @@ void loop() {
       } while (msg.length() > 1);
       writeLamps();
     } else if (msg.startsWith("c:")) { //All lamps off
-      for (byte i; i < 100; i++) {
+      for (byte i=0; i < 100; i++) {
         lampBuffer[i] = 0;
       }
       writeLamps();
@@ -159,7 +159,7 @@ void loop() {
 
   //compares analog values
   byte PotHasChangedCounter = 0;
-  for (byte i; i < 16; i++) {
+  for (byte i=0; i < 16; i++) {
     if (abs2(analogBuffer[i] - oldanalogBuffer[i]) > 3) {
       SendanalogBuffer[PotHasChangedCounter] = i;
       SendanalogBuffer[PotHasChangedCounter + 1] = analogBuffer[i];
@@ -172,7 +172,7 @@ void loop() {
   if (PotHasChangedCounter) { //If analog changed, then send
     client.beginMessage(TYPE_TEXT);
     client.print(F("a"));
-    for (byte i; i < PotHasChangedCounter; i++) {
+    for (byte i=0; i < PotHasChangedCounter; i++) {
       client.print(F(":"));
       client.print(SendanalogBuffer[i]);
     }
@@ -181,7 +181,7 @@ void loop() {
   if (onButtonCounter) { //If buttons changed to on, then send
     client.beginMessage(TYPE_TEXT);
     client.print(F("b1"));
-    for (byte i; i < onButtonCounter; i++) {
+    for (byte i=0; i < onButtonCounter; i++) {
       client.print(F(":"));
       client.print(onButtonBuffer[i]);
       if (i == 40) {
@@ -195,7 +195,7 @@ void loop() {
   if (offButtonCounter) { //If buttons changed to off, then send
     client.beginMessage(TYPE_TEXT);
     client.print(F("c1"));
-    for (byte i; i < offButtonCounter; i++) {
+    for (byte i=0; i < offButtonCounter; i++) {
       client.print(F(":"));
       client.print(offButtonBuffer[i]);
       if (i == 40) {
